@@ -17,16 +17,13 @@ param1=XNLV1&param2=XNLV2&...
   - In chunks (`-n`)
   - Optionally with interactive paging (`-oi`)
 - ✅ Clean error handling and user-friendly prompts
-- ⚡ Efficient for files up to 10MB
 
 ---
 
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/wordlist-paramchunker.git
-cd wordlist-paramchunker
-go build -o paramchunker
+go install github.com/ind-exe/paramchunker@v0.1.0
 ```
 
 ---
@@ -53,10 +50,10 @@ cat wordlist.txt | ./paramchunker
 
 ### Output Options
 
-| Flag            | Description                                           |
-|-----------------|-------------------------------------------------------|
-| `-oi`           | Output each chunk interactively (press Enter to show next) |
-| `-n <size>`     | Specify chunk size (e.g. 20 params per chunk)         |
+| Flag        | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| `-oi`       | Output each chunk interactively (press Enter to show next) |
+| `-n <size>` | Specify chunk size (e.g. 20 params per chunk)              |
 
 > If `-n` is not set, the output is printed all at once regardless of `-oi`.
 
@@ -65,16 +62,19 @@ cat wordlist.txt | ./paramchunker
 ### Examples
 
 #### 🔸 Output All at Once
+
 ```bash
 ./paramchunker -f wordlist.txt
 ```
 
 #### 🔸 Output in Chunks of 10, Interactive
+
 ```bash
 ./paramchunker -f wordlist.txt -n 10 -oi
 ```
 
 #### 🔸 Paste Mode, Output in Chunks
+
 ```bash
 ./paramchunker -i -n 5
 ```
@@ -101,20 +101,6 @@ Transforms input to:
 ```
 username=XNLV1&password=XNLV2&token=XNLV3&session=XNLV4
 ```
-
----
-
-## ⚠️ Notes
-
-- You must provide **exactly one** input method: stdin, `-f`, or `-i`.
-- Maximum file size is tested up to 10MB.
-- Empty lines are trimmed automatically.
-
----
-
-## 📄 License
-
-MIT License
 
 ---
 
